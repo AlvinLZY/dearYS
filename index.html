@@ -8,7 +8,7 @@
   </head>
   <body id="bodyyy">
     <!-- Slideshow -->
-    <div class="slideshow">
+    <div class="slideshow" id="sparkle-container">
       <img src="photos/1.png" class="slide active" />
       <img src="photos/2.JPG" class="slide" />
       <img src="photos/3.JPG" class="slide" />
@@ -32,5 +32,28 @@
     </audio>
 
     <script src="script.js"></script>
+
+    <script>
+      const container = document.getElementById("sparkle-container");
+      const symbols = ["💖", "✨", "💕", "💗"];
+
+      function createSparkle() {
+        const sparkle = document.createElement("span");
+        sparkle.className = "sparkle";
+        sparkle.innerText = symbols[Math.floor(Math.random() * symbols.length)];
+
+        sparkle.style.left = Math.random() * 100 + "vw";
+        sparkle.style.animationDuration = 4 + Math.random() * 5 + "s";
+        sparkle.style.fontSize = 12 + Math.random() * 40 + "px";
+
+        container.appendChild(sparkle);
+
+        setTimeout(() => {
+          sparkle.remove();
+        }, 7000);
+      }
+
+      setInterval(createSparkle, 300);
+    </script>
   </body>
 </html>

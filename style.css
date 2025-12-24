@@ -76,3 +76,35 @@ body {
 #typewriter {
   font-family: "PingFang SC", "Heiti SC", sans-serif;
 }
+
+/* Sparkle container */
+#sparkle-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: -1; /* keep it in background */
+}
+
+/* Heart / sparkle */
+.sparkle {
+  position: absolute;
+  font-size: 16px;
+  opacity: 0.8;
+  animation: floatUp linear forwards;
+}
+
+/* Floating animation */
+@keyframes floatUp {
+  from {
+    transform: translateY(100vh) scale(0.5);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-10vh) scale(1.2);
+    opacity: 0;
+  }
+}
