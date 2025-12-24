@@ -117,7 +117,7 @@ function typeWriter() {
   }
 }
 
-typeWriter();
+
 
 /* ----------------------
    SLIDESHOW
@@ -139,6 +139,7 @@ setInterval(() => {
 const audio = document.getElementById("bgm");
 const btn = document.getElementById("bodyyy");
 checkPlay = false;
+first = false;
 audio.currentTime = 1.5;
 
 btn.addEventListener("click", () => {
@@ -150,6 +151,9 @@ btn.addEventListener("click", () => {
     checkPlay = true;
     audio.play();
   }
+
+  if (first)
+    typeWriter();
 });
 
 
