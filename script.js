@@ -139,7 +139,7 @@ setInterval(() => {
 const audio = document.getElementById("bgm");
 const btn = document.getElementById("bodyyy");
 checkPlay = false;
-first = false;
+first = true;
 audio.currentTime = 1.5;
 
 btn.addEventListener("click", () => {
@@ -152,8 +152,10 @@ btn.addEventListener("click", () => {
     audio.play();
   }
 
-  if (first)
+  if (first) {
+    first = false;
     typeWriter();
+  }
 });
 
 
