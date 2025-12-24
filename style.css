@@ -77,6 +77,23 @@ body {
   font-family: "PingFang SC", "Heiti SC", sans-serif;
 }
 
+
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+}
+
+#sparkleCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1; /* background */
+  pointer-events: none;
+}
+
 /* Sparkle container */
 #sparkle-container {
   position: fixed;
