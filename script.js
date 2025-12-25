@@ -1,10 +1,10 @@
-
+document.addEventListener("DOMContentLoaded", () => {
 const CONFIG = {
   introDesc: `你好呀~~
   
   我親愛的語紳
 
-  MunHing
+  Mun Hin
   
   Alric
   還是說......
@@ -95,29 +95,29 @@ const CONFIG = {
 // Leave text empty for now
 const text = CONFIG.introDesc;
 let index = 0;
-const speed = 80;
+const speed = 5;
+
 const target = document.getElementById("typewriter");
-
-// function typeWriter() {
-//   if (index < text.length) {
-//     target.innerHTML += text.charAt(index);
-//     index++;
-//     setTimeout(typeWriter, speed);
-//   }
-// }
-
+const box = document.querySelector(".text-box");
+ const controls = document.querySelector(".controls");
 function typeWriter() {
   if (index < text.length) {
     const char = text.charAt(index);
-
     target.innerHTML += char === "\n" ? "<br>" : char;
-
     index++;
+
+    // ✅ keep scrolling to bottom
+    box.scrollTop = box.scrollHeight;
+
     setTimeout(typeWriter, speed);
+  }else {
+    // ✅ Typing finished → enable scrolling
+    box.style.overflowY = "auto";
+
+    // ✅ Show buttons
+    controls.classList.add("show");
   }
 }
-
-
 
 /* ----------------------
    SLIDESHOW
@@ -145,7 +145,7 @@ audio.currentTime = 1.5;
 btn.addEventListener("click", () => {
   if (checkPlay) {
     checkPlay = false;
-    audio.pause();
+    // audio.pause();
   }
   else {
     checkPlay = true;
@@ -160,5 +160,213 @@ btn.addEventListener("click", () => {
 
 
 
+function createLove(x, y) {
+  const count = Math.floor(Math.random() * 3) + 3; // 3–5
+
+  const colors = [
+    "#ff4d6d", // pink
+    "#ff7a00", // orange
+    "#ffd166", // yellow
+    "#c77dff", // purple
+    "#4dabf7"  // blue
+  ];
+
+  for (let i = 0; i < count; i++) {
+    const love = document.createElement("span");
+
+    love.className = "love";
+    love.innerText = Math.random() > 0.5 ? "❤️" : "✨";
+
+    const offsetX = (Math.random() - 0.5) * 80;
+    const delay = Math.random() * 0.2;
+
+    love.style.left = x + "px";
+    love.style.top = y + "px";
+    love.style.color = colors[Math.floor(Math.random() * colors.length)];
+    love.style.setProperty("--x", `${offsetX}px`);
+    love.style.animationDelay = `${delay}s`;
+
+    document.body.appendChild(love);
+
+    setTimeout(() => love.remove(), 1600);
+  }
+}
+
+// Desktop
+document.addEventListener("click", (e) => {
+  createLove(e.clientX, e.clientY);
+});
+
+// iOS / Touch
+document.addEventListener("touchstart", (e) => {
+  const t = e.touches[0];
+  if (t) createLove(t.clientX, t.clientY);
+});
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+function explodeLove(x, y,z,a) {
+  const count = Math.floor(Math.random() * 3) + z; // 6–8
+  const radius = 90;
+
+  const colors = [
+    "#ff4d6d",
+    "#ff7a00",
+    "#ffd166",
+    "#c77dff",
+    "#4dabf7"
+  ];
+
+  for (let i = 0; i < count; i++) {
+    const love = document.createElement("span");
+
+    const angle = Math.random() * Math.PI * 2;
+    const distance = Math.random() * radius + a;
+
+    const xMove = Math.cos(angle) * distance;
+    const yMove = Math.sin(angle) * distance;
+
+    love.className = "love";
+    love.innerText = Math.random() > 0.5 ? "❤️" : "💓";
+    love.style.color = colors[Math.floor(Math.random() * colors.length)];
+
+    love.style.left = x + "px";
+    love.style.top = y + "px";
+    love.style.setProperty("--x", `${xMove}px`);
+    love.style.setProperty("--y", `${yMove}px`);
+
+    document.body.appendChild(love);
+
+    setTimeout(() => love.remove(), 900);
+  }
+}
+
+// Desktop
+document.addEventListener("click", (e) => {
+  explodeLove(e.clientX, e.clientY,3,20);
+});
+
+// iOS / Touch
+document.addEventListener("touchstart", (e) => {
+  const t = e.touches[0];
+  if (t) explodeLove(t.clientX, t.clientY,3,20);
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// // ------------------- EXPLODE LOVE BOMB -------------------
+// function explodeLove(x, y) {
+//   const count = Math.floor(Math.random() * 3) + 6; // 6–8
+//   const radius = 90;
+
+//   const colors = ["#ff4d6d", "#ff7a00", "#ffd166", "#c77dff", "#4dabf7"];
+
+//   for (let i = 0; i < count; i++) {
+//     const love = document.createElement("span");
+
+//     const angle = Math.random() * Math.PI * 2;
+//     const distance = Math.random() * radius + 20;
+
+//     const xMove = Math.cos(angle) * distance;
+//     const yMove = Math.sin(angle) * distance;
+
+//     love.className = "love";
+//     love.innerText = Math.random() > 0.5 ? "❤️" : "✨";
+//     love.style.color = colors[Math.floor(Math.random() * colors.length)];
+
+//     love.style.left = x + "px";
+//     love.style.top = y + "px";
+//     love.style.setProperty("--x", `${xMove}px`);
+//     love.style.setProperty("--y", `${yMove}px`);
+
+//     document.body.appendChild(love);
+//     setTimeout(() => love.remove(), 900);
+//   }
+// }
+
+
+
+
+
+
+
+
+const popupContainer = document.getElementById("popup-container");
+
+// ------------------- SIMULATED POPUPS WITH DELAY -------------------
+document.getElementById("popupBtn").addEventListener("click", () => {
+  const count = 180; // number of popups
+  const colors = [
+    "#ff4d6d", "#ff7a00", "#ffd166",
+    "#d9aafcff", "#80c6ffff", "#ffb6c1",
+    "#a0e7e5", "#b5ead7"
+  ];
+  const txt = [
+    "🥹🥹🥹","🥺🥺🥺","泥嚎狠心🥺","給我機會嘛","你不要我了嗎？","🥹🥹🥹","🥺🥺🥺","泥嚎狠心🥺","給我機會嘛","你不要我了嗎？","🥹🥹🥹","🥺🥺🥺","泥嚎狠心🥺","給我機會嘛","你不要我了嗎？"
+  ];
+
+  for (let i = 0; i < count; i++) {
+    setTimeout(() => {
+      const popup = document.createElement("div");
+      popup.className = "popup-box";
+      popup.innerText = txt[Math.floor(Math.random() * txt.length)];
+
+      // random position on screen
+      popup.style.left = Math.random() * (window.innerWidth - 220) + "px";
+      popup.style.top = Math.random() * (window.innerHeight - 170) + "px";
+
+      // random background color
+      popup.style.background = colors[Math.floor(Math.random() * colors.length)];
+
+      // random text color for contrast
+      popup.style.color = Math.random() > 0.5 ? "#fff" : "#333";
+
+      // click to close
+      popup.addEventListener("click", () => popup.remove());
+
+      popupContainer.appendChild(popup);
+    }, i * 30); // delay 300ms between popups
+  }
+});
+  
+  // trigger on button click
+document.getElementById("loveBtn").addEventListener("click", () => {
+  const x = window.innerWidth / 2;
+  const y = window.innerHeight / 2;
+  popupContainer.replaceChildren();
+  for (let i = 0; i < 5; i++) {
+    setTimeout(() => {
+      for (let i = 0; i < 5; i++) {
+        setTimeout(() => {
+          explodeLove(x, y, 100, 200);
+        }, i * 200); // delay 300ms between popups
+      }
+    }, i * 450); // delay 300ms between popups
+  }
+});
+
+});

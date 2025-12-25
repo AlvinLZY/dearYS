@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>For You</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Chiron+GoRound+TC:wght@200..900&family=Long+Cang&family=Ma+Shan+Zheng&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body id="bodyyy">
     <!-- Slideshow -->
@@ -21,6 +27,13 @@
     <div class="text-box">
       <p id="typewriter"></p>
     </div>
+
+    <div class="controls">
+      <button id="popupBtn">不要</button>
+      <button id="loveBtn">豪~</button>
+    </div>
+
+    <div id="popup-container"></div>
 
     <!-- Music Button -->
     <!-- Music Button -->
@@ -56,7 +69,7 @@
       setInterval(createSparkle, 300);
     </script> -->
 
-    <script>
+    <!-- <script>
       const canvas = document.getElementById("sparkleCanvas");
       const ctx = canvas.getContext("2d");
 
@@ -100,6 +113,6 @@
       }
 
       animate();
-    </script>
+    </script> -->
   </body>
 </html>
