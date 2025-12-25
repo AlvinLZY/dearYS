@@ -64,8 +64,21 @@ const CONFIG = {
   
   你願意給我機會 讓我當你的男朋友嗎？
 
-  當你的依靠 當你的後盾幫你兜底 
-  你放心往前沖 我會等你的 我一直都會等你💕
+  上個星期你有擔心過
+  我會不會因爲悶了累了而離開你
+
+  但我想和你説 我不會抛下你的
+  就好像我説過的 我會一直在這裏等你
+  就算遇到了什麽困難
+  我們之間有爭吵 有誤會 有委屈的話
+  我不會一句我累了 而結束
+  我會嘗試著去找平衡點
+  找個讓我們都舒服的點
+  去把問題解決
+  所以我想給你知道
+  要是遇到了問題
+  我想要可以當你的依靠 當你的後盾幫你兜底 
+  我會等你的 我一直都會等你💕
 
   在我這你不用一直撐著當大哥
   你不用一直自己一個承受 我會和你一起
@@ -95,7 +108,7 @@ const CONFIG = {
 // Leave text empty for now
 const text = CONFIG.introDesc;
 let index = 0;
-const speed = 5;
+const speed = 50;
 
 const target = document.getElementById("typewriter");
 const box = document.querySelector(".text-box");
